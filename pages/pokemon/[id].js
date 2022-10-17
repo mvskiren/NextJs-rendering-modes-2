@@ -71,4 +71,4 @@ export default function Details({ pokemon }) {
   );
 }
 
-//test222
+//test22211
