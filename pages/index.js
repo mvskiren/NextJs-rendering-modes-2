@@ -22,7 +22,7 @@ export default function Home({ pokemons }) {
         <title>Static Site Generation App</title>
       </Head>
       <h2>
-        Rendering Mode- <span style={{ color: "green" }}>SSG</span>
+        Rendering Mode- <span style={{ color: "green" }}>SSG-revalidate-10</span>
       </h2>
       <div className={styles.flex}>
         {pokemons.map((pokemon) => (
