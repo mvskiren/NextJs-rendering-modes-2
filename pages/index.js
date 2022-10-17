@@ -19,10 +19,10 @@ export default function Home({ pokemons }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Server Side Rendering App</title>
+        <title>Static Site Generation App</title>
       </Head>
       <h2>
-        Rendering Mode- <span style={{ color: "green" }}>SSR</span>
+        Rendering Mode- <span style={{ color: "green" }}>SSG</span>
       </h2>
       <div className={styles.flex}>
         {pokemons.map((pokemon) => (
