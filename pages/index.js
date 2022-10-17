@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export async function getStaticProps() {
   const resp = await fetch(
-    "https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json"
+    "https://634d38a3f5d2cc648e9fc5a7.mockapi.io/api/tester"
   );
   return {
     props: {
@@ -31,7 +31,7 @@ export default function Home({ pokemons }) {
               <a>
                 <img
                   className={styles.image}
-                  src={`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${pokemon.image}`}
+                  src={pokemon.avatar}
                   alt={pokemon.name}
                 />
                 <h3>{pokemon.name}</h3>

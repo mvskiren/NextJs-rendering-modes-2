@@ -6,7 +6,7 @@ import styles from "../../styles/Home.module.css";
 
 export async function getStaticPaths() {
   const resp = await fetch(
-    "https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json"
+    "https://634d38a3f5d2cc648e9fc5a7.mockapi.io/api/tester"
   );
   const pokemon = await resp.json();
 
@@ -20,15 +20,24 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const resp = await fetch(
-    `https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${params.id}.json`
+    `https://634d38a3f5d2cc648e9fc5a7.mockapi.io/api/tester/${params.id}`
   );
   return {
     props: {
       pokemon: await resp.json(),
     },
+    revalidate: 10,
   };
 }
 export default function Details({ pokemon }) {
+  //   useEffect(() => {
+  //     const resp = await fetch(
+  //       `https://634d38a3f5d2cc648e9fc5a7.mockapi.io/api/tester/1.json`
+  //     );
+  //     console.log(await resp.json());
+  //   }, []);
+
+  console.log(pokemon, "test pokemon");
   return (
     <div
       style={{
@@ -39,15 +48,10 @@ export default function Details({ pokemon }) {
         padding: "20px",
       }}
     >
-      <img
-        className={styles.image}
-        src={`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${pokemon.image}`}
-        alt={pokemon.name}
-      />
+      <img className={styles.image} src={pokemon.avatar} alt={pokemon.name} />
       <h3>Name: {pokemon.name}</h3>
-      <p>Types: {pokemon.type.join(",")}</p>
-      <h1 style={{ textAlign: "center" }}>Stats</h1>
-      <table>
+      <h3>Created At: {pokemon.createdAt}</h3>
+      {/* <table>
         <thead className={styles.header}>
           <tr>
             <th>Name</th>
@@ -62,7 +66,7 @@ export default function Details({ pokemon }) {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 }
