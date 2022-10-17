@@ -14,7 +14,7 @@ export async function getStaticPaths() {
     paths: pokemon.map((pokemon) => ({
       params: { id: pokemon.id.toString() },
     })),
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -67,4 +67,4 @@ export default function Details({ pokemon }) {
   );
 }
 
-//test
+//test222
