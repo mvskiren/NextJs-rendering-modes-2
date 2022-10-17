@@ -52,3 +52,5 @@ export default function Details({ pokemon }) {
     </div>
   );
 }
+
+//test
